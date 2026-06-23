@@ -1,0 +1,6 @@
+com\intellicrud\controller\AiController.class
+com\intellicrud\repository\BookRepository.class
+com\intellicrud\controller\BookController.class
+com\intellicrud\IntelliCrudApplication.class
+com\intellicrud\model\Book.class
+com\intellicrud\service\AiService.class

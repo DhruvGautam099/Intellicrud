@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  backend:
+    build:
+      context: ./intellicrud-backend
+    ports:
+      - "8080:8080"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/intellicrud
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    depends_on:
+      - mongodb
+
+  frontend:
+    build:
+      context: ./intellicrud-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongodb_data:

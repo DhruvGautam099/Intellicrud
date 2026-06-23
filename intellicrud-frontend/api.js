@@ -1,4 +1,4 @@
-const API_BASE = 'http://localhost:8081/api';
+const API_BASE = '/api';
 
 const api = {
     // --- Book CRUD ---
