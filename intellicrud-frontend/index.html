@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliCRUD - AI Library</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container nav-content">
+            <div class="logo">IntelliCRUD <span class="ai-badge">AI Powered</span></div>
+            <button id="add-book-btn" class="btn btn-primary">+ Add New Book</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Dashboard Metrics -->
+        <section class="dashboard-metrics">
+            <div class="metric-card">
+                <h3>Total Books</h3>
+                <p id="total-books-count" class="metric-value">0</p>
+            </div>
+            <div class="metric-card highlight-card">
+                <h3>AI Recommendations</h3>
+                <div id="ai-recommendations-content" class="ai-content">
+                    <p class="placeholder-text">Click to generate personalized recommendations.</p>
+                </div>
+                <button id="get-recommendations-btn" class="btn btn-secondary btn-sm mt-2">Get AI Picks</button>
+            </div>
+        </section>
+
+        <!-- Book Management Table -->
+        <section class="book-management">
+            <div class="section-header">
+                <h2>Library Collection</h2>
+            </div>
+            <div class="table-container">
+                <table id="books-table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Genre</th>
+                            <th class="actions-col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="books-tbody">
+                        <!-- Book rows will be dynamically injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal: Add/Edit Book -->
+    <div id="book-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2 id="modal-title">Add New Book</h2>
+            <form id="book-form">
+                <input type="hidden" id="book-id">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" required>
+                </div>
+                <div class="form-group">
+                    <label for="genre">Genre</label>
+                    <input type="text" id="genre" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="3" required></textarea>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" id="close-modal-btn" class="btn btn-text">Cancel</button>
+                    <button type="submit" id="save-book-btn" class="btn btn-primary">Save Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal: AI Insights -->
+    <div id="ai-modal" class="modal-overlay hidden">
+        <div class="modal-content ai-modal-content">
+            <div class="ai-header">
+                <h2>AI Reading Assistant</h2>
+                <span class="ai-icon">✨</span>
+            </div>
+            <div class="ai-body">
+                <h3 id="ai-book-title">Loading insight...</h3>
+                <div id="ai-insight-content" class="ai-text-box">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" id="close-ai-modal-btn" class="btn btn-primary">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="api.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
